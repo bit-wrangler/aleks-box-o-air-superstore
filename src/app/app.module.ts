@@ -4,13 +4,43 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { OrdersComponent } from './orders/orders.component';
+import { HomeComponent } from './home/home.component';
+import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
+import { ManageProductsComponent } from './manage-products/manage-products.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { RouterModule } from "@angular/router";
+
+library.add(faBoxOpen);
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    ShoppingCartComponent,
+    OrdersComponent,
+    HomeComponent,
+    ManageOrdersComponent,
+    ManageProductsComponent,
+    NotFoundComponent
   ],
   imports: [
-    BrowserModule
+    NgbModule.forRoot(),
+    BrowserModule,
+    FontAwesomeModule,
+    RouterModule.forRoot([
+      {path:'', component:HomeComponent},
+      {path:'cart', component:ShoppingCartComponent},
+      {path:'orders', component:OrdersComponent},
+      {path:'manage-orders', component:ManageOrdersComponent},
+      {path:'manage-products', component:ManageProductsComponent},
+      {path:'**', component:NotFoundComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

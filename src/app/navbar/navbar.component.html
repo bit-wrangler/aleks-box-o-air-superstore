@@ -1,3 +1,23 @@
-<p>
-  navbar works!
-</p>
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+  <a href="#" class="navbar-brand">
+    <fa-icon icon="box-open"></fa-icon>
+    <span style="margin-left: 8px;">Alek's Box O' Air</span>
+  </a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a routerLink="cart" class="nav-link">Shopping Cart</a>
+    </li>
+    <li class="nav-item" ngbDropdown placement="bottom-right">
+      <a href="" onclick="return false;" class="nav-link" id="userDropdown" ngbDropdownToggle>User</a>
+      <div ngbDropdownMenu aria-labelledby="userDropdown" class="dropdown-menu-right">
+        <button class="dropdown-item" routerLink="orders">My Orders</button>
+        <button class="dropdown-item" routerLink="manage-orders">Manage Orders</button>
+        <button class="dropdown-item" routerLink="manage-products">Manage Products</button>
+        <button class="dropdown-item" routerLink="">Log Out</button>
+      </div>
+
+    </li>
+  </ul>
+</nav>
+
+
