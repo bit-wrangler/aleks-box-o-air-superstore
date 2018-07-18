@@ -1,5 +1,9 @@
+import { firebaseSecret } from '../environments/firebase.secret';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule } from "angularfire2/database";
+import { AngularFireAuthModule } from "angularfire2/auth";
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -32,6 +36,9 @@ library.add(faBoxOpen);
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseSecret),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     FontAwesomeModule,
     RouterModule.forRoot([
       {path:'', component:HomeComponent},
