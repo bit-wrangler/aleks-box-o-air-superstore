@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/aleks-box-o-air-superstore",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
