@@ -50,10 +50,14 @@ library.add(faBoxOpen);
     FontAwesomeModule,
     RouterModule.forRoot([
       {path:'', component:HomeComponent},
+      {path:'login', component:LoginComponent},
       {path:'cart', component:ShoppingCartComponent},
+      {path:'checkout', component:CheckoutComponent},
+      {path:'order-success', component:OrderSuccessComponent},
       {path:'orders', component:OrdersComponent},
       {path:'manage-orders', component:ManageOrdersComponent},
       {path:'manage-products', component:ManageProductsComponent},
+      {path:'products', component:ProductsComponent},
       {path:'**', component:NotFoundComponent}
     ])
   ],
