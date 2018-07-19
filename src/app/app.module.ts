@@ -19,6 +19,7 @@ import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.compo
 import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from "@angular/router";
+import { ProductsComponent } from './products/products.component';
 
 library.add(faBoxOpen);
 
@@ -31,7 +32,8 @@ library.add(faBoxOpen);
     HomeComponent,
     ManageOrdersComponent,
     ManageProductsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductsComponent
   ],
   imports: [
     NgbModule.forRoot(),
