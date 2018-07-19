@@ -21,6 +21,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from "@angular/router";
 import { ProductsComponent } from './products/products.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { LoginComponent } from './login/login.component';
+import { OrderSuccessComponent } from './order-success/order-success.component';
 
 library.add(faBoxOpen);
 
@@ -35,7 +37,9 @@ library.add(faBoxOpen);
     ManageProductsComponent,
     NotFoundComponent,
     ProductsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    LoginComponent,
+    OrderSuccessComponent
   ],
   imports: [
     NgbModule.forRoot(),
