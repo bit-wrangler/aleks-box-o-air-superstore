@@ -15,8 +15,8 @@ import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { OrdersComponent } from './orders/orders.component';
 import { HomeComponent } from './home/home.component';
-import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
-import { ManageProductsComponent } from './manage-products/manage-products.component';
+import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.component';
+import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from "@angular/router";
 
