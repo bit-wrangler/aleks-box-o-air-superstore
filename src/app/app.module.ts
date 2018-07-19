@@ -2,6 +2,8 @@ import { firebaseSecret } from '../environments/firebase.secret';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from "angularfire2";
+//workaround per https://github.com/angular/angularfire2/issues/1635 for AngularFireModule
+import { FirebaseOptionsToken, FirebaseAppNameToken, FirebaseAppConfigToken } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
 
@@ -44,7 +46,9 @@ library.add(faBoxOpen);
   imports: [
     NgbModule.forRoot(),
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseSecret),
+    //AngularFireModule.initializeApp(firebaseSecret), //standard usage is bugged, currently doesn't work
+    //workaround per https://github.com/angular/angularfire2/issues/1635
+    AngularFireModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FontAwesomeModule,
@@ -61,7 +65,12 @@ library.add(faBoxOpen);
       {path:'**', component:NotFoundComponent}
     ])
   ],
-  providers: [],
+  providers: [
+    //workaround per https://github.com/angular/angularfire2/issues/1635 for AngularFireModule
+    { provide: FirebaseOptionsToken, useValue: firebaseSecret },
+    { provide: FirebaseAppNameToken, useValue: undefined },
+    { provide: FirebaseAppConfigToken, useValue: undefined }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
