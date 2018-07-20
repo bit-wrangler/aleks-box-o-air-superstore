@@ -9,10 +9,10 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class LoginComponent{
 
-  constructor(private fbAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth) { }
 
   googleLogin() {
-    this.fbAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
   }
 
 }
