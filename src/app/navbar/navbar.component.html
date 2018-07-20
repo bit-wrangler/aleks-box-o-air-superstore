@@ -4,23 +4,29 @@
     <span style="margin-left: 8px;">Alek's Box O' Air</span>
   </a>
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <a routerLink="login" class="nav-link">Login</a>
-    </li>
 
+    <li class="nav-item">
+      <a routerLink="products" class="nav-link">The Goods</a>
+    </li>
     <li class="nav-item">
       <a routerLink="cart" class="nav-link">Shopping Cart</a>
     </li>
 
-    <li class="nav-item" ngbDropdown placement="bottom-right">
-      <a href="" onclick="return false;" class="nav-link" id="userDropdown" ngbDropdownToggle>User</a>
-      <div ngbDropdownMenu aria-labelledby="userDropdown" class="dropdown-menu-right">
-        <button class="dropdown-item" routerLink="orders">My Orders</button>
-        <button class="dropdown-item" routerLink="manage-orders">Manage Orders</button>
-        <button class="dropdown-item" routerLink="manage-products">Manage Products</button>
-        <button class="dropdown-item" (click)="logOut()">Log Out</button>
-      </div>
 
-    </li>
+    <li class="nav-item" ngbDropdown placement="bottom-right" *ngIf="(user$ | async) as user; else anonymousUser">
+        <a href="" onclick="return false;" class="nav-link" id="userDropdown" ngbDropdownToggle>{{user.displayName}}</a>
+        <div ngbDropdownMenu aria-labelledby="userDropdown" class="dropdown-menu-right">
+          <button class="dropdown-item" routerLink="orders">My Orders</button>
+          <button class="dropdown-item" routerLink="manage-orders">Manage Orders</button>
+          <button class="dropdown-item" routerLink="manage-products">Manage Products</button>
+          <button class="dropdown-item" (click)="logOut()">Log Out</button>
+        </div>
+      </li>
+    <ng-template #anonymousUser>
+        <li class="nav-item">
+            <a routerLink="login" class="nav-link">Login</a>
+          </li>
+    </ng-template>
+
   </ul>
 </nav>
