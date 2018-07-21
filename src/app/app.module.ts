@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { firebaseSecret } from '../environments/firebase.secret';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -69,7 +70,8 @@ library.add(faBoxOpen);
     //workaround per https://github.com/angular/angularfire2/issues/1635 for AngularFireModule
     { provide: FirebaseOptionsToken, useValue: firebaseSecret },
     { provide: FirebaseAppNameToken, useValue: undefined },
-    { provide: FirebaseAppConfigToken, useValue: undefined }
+    { provide: FirebaseAppConfigToken, useValue: undefined },
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
