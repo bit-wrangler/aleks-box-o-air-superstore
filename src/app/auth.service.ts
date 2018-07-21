@@ -7,6 +7,7 @@ import * as firebase from 'firebase';
   providedIn: 'root'
 })
 export class AuthService {
+  //TODO: Create a non firebase User
   private _user : Observable<firebase.User>
 
   constructor(private afAuth: AngularFireAuth) {

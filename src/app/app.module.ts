@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { firebaseSecret } from '../environments/firebase.secret';
 import { BrowserModule } from '@angular/platform-browser';
@@ -57,7 +58,7 @@ library.add(faBoxOpen);
       {path:'', component:HomeComponent},
       {path:'login', component:LoginComponent},
       {path:'cart', component:ShoppingCartComponent},
-      {path:'checkout', component:CheckoutComponent},
+      {path:'checkout', component:CheckoutComponent, canActivate: [AuthGuard]},
       {path:'order-success', component:OrderSuccessComponent},
       {path:'orders', component:OrdersComponent},
       {path:'manage-orders', component:ManageOrdersComponent},
@@ -71,7 +72,8 @@ library.add(faBoxOpen);
     { provide: FirebaseOptionsToken, useValue: firebaseSecret },
     { provide: FirebaseAppNameToken, useValue: undefined },
     { provide: FirebaseAppConfigToken, useValue: undefined },
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
