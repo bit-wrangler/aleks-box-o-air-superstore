@@ -11,6 +11,7 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class NavbarComponent{
   user$ : Observable<firebase.User>;
+  isNavbarCollapsed = true;
 
   constructor(
     private authService: AuthService,
