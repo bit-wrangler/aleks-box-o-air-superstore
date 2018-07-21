@@ -22,7 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.component';
 import { ManageProductsComponent } from './admin/manage-products/manage-products.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { RouterModule } from "@angular/router";
+import { RouterModule, ActivatedRoute } from "@angular/router";
 import { ProductsComponent } from './products/products.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
@@ -57,13 +57,15 @@ library.add(faBoxOpen);
     RouterModule.forRoot([
       {path:'', component:HomeComponent},
       {path:'login', component:LoginComponent},
-      {path:'cart', component:ShoppingCartComponent},
-      {path:'checkout', component:CheckoutComponent, canActivate: [AuthGuard]},
-      {path:'order-success', component:OrderSuccessComponent},
-      {path:'orders', component:OrdersComponent},
-      {path:'manage-orders', component:ManageOrdersComponent},
-      {path:'manage-products', component:ManageProductsComponent},
       {path:'products', component:ProductsComponent},
+      {path:'cart', component:ShoppingCartComponent},
+
+      {path:'checkout', component:CheckoutComponent, canActivate: [AuthGuard]},
+      {path:'order-success', component:OrderSuccessComponent, canActivate: [AuthGuard]},
+      {path:'orders', component:OrdersComponent, canActivate: [AuthGuard]},
+
+      {path:'manage-orders', component:ManageOrdersComponent, canActivate: [AuthGuard]},
+      {path:'manage-products', component:ManageProductsComponent, canActivate: [AuthGuard]},
       {path:'**', component:NotFoundComponent}
     ])
   ],
@@ -74,7 +76,7 @@ library.add(faBoxOpen);
     { provide: FirebaseAppConfigToken, useValue: undefined },
     AuthService,
     AuthGuard
-  ],
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
