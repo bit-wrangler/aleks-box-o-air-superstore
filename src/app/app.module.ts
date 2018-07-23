@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { firebaseSecret } from '../environments/firebase.secret';
@@ -75,7 +76,8 @@ library.add(faBoxOpen);
     { provide: FirebaseAppNameToken, useValue: undefined },
     { provide: FirebaseAppConfigToken, useValue: undefined },
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UserService
     ],
   bootstrap: [AppComponent]
 })

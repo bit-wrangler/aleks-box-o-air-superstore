@@ -17,7 +17,7 @@ export class NavbarComponent{
     private authService: AuthService,
     private router: Router
   ) { 
-    this.user$ = authService.user;
+    this.user$ = authService.user$;
   }
 
   logOut(){

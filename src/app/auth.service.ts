@@ -14,7 +14,7 @@ export class AuthService {
     this._user = afAuth.authState;
   }
 
-  get user(): Observable<firebase.User> {
+  get user$(): Observable<firebase.User> {
     return this._user;
   }
 

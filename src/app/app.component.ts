@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(
+    private authService: AuthService,
+    private userService: UserService
+  ) {
+    authService.user$.subscribe( user => {
+      if (user){
+        userService.save(user);
+      }
+    })
+  }
 }
