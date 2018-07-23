@@ -1,3 +1,4 @@
+import { AdminAuthGuard } from './admin-auth-guard.service';
 import { UserService } from './user.service';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
@@ -77,7 +78,8 @@ library.add(faBoxOpen);
     { provide: FirebaseAppConfigToken, useValue: undefined },
     AuthService,
     AuthGuard,
-    UserService
+    UserService,
+    AdminAuthGuard
     ],
   bootstrap: [AppComponent]
 })
