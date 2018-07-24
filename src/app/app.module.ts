@@ -66,8 +66,17 @@ library.add(faBoxOpen);
       {path:'order-success', component:OrderSuccessComponent, canActivate: [AuthGuard]},
       {path:'orders', component:OrdersComponent, canActivate: [AuthGuard]},
 
-      {path:'manage-orders', component:ManageOrdersComponent, canActivate: [AuthGuard]},
-      {path:'manage-products', component:ManageProductsComponent, canActivate: [AuthGuard]},
+      {
+        path:'manage-orders',
+        component:ManageOrdersComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
+      },
+      {
+        path:'manage-products',
+        component:ManageProductsComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
+      },
+      
       {path:'**', component:NotFoundComponent}
     ])
   ],
