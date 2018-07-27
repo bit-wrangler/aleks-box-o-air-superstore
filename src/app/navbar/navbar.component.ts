@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import * as firebase from "firebase";
 import { Observable } from 'rxjs';
 import { Router } from '../../../node_modules/@angular/router';
+import { AppUser } from '../models/app-user';
 
 @Component({
   selector: 'app-navbar',
@@ -10,14 +11,14 @@ import { Router } from '../../../node_modules/@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent{
-  user$ : Observable<firebase.User>;
+  appUser: AppUser;
   isNavbarCollapsed = true;
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) { 
-    this.user$ = authService.user$;
+    authService.appUser$.subscribe(appUser => {this.appUser = appUser;});
   }
 
   logOut(){

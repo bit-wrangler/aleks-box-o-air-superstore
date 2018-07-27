@@ -19,12 +19,14 @@
       </li>
 
 
-      <li class="nav-item" ngbDropdown placement="bottom-right" *ngIf="(user$ | async) as user; else anonymousUser">
-        <a href="" onclick="return false;" class="nav-link" id="userDropdown" ngbDropdownToggle>{{user.displayName}}</a>
+      <li class="nav-item" ngbDropdown placement="bottom-right" *ngIf="appUser; else anonymousUser">
+        <a href="" onclick="return false;" class="nav-link" id="userDropdown" ngbDropdownToggle>{{appUser.name}}</a>
         <div ngbDropdownMenu aria-labelledby="userDropdown" class="dropdown-menu-right">
           <button class="dropdown-item" routerLink="orders">My Orders</button>
-          <button class="dropdown-item" routerLink="manage-orders">Manage Orders</button>
-          <button class="dropdown-item" routerLink="manage-products">Manage Products</button>
+          <ng-container *ngIf="appUser.isAdmin">
+            <button class="dropdown-item" routerLink="manage-orders">Manage Orders</button>
+            <button class="dropdown-item" routerLink="manage-products">Manage Products</button>
+          </ng-container>
           <button class="dropdown-item" (click)="logOut()">Log Out</button>
         </div>
       </li>
