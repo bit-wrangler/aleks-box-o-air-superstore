@@ -29,6 +29,8 @@ import { ProductsComponent } from './products/products.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 library.add(faBoxOpen);
 
@@ -45,7 +47,9 @@ library.add(faBoxOpen);
     ProductsComponent,
     CheckoutComponent,
     LoginComponent,
-    OrderSuccessComponent
+    OrderSuccessComponent,
+    EditProductComponent,
+    ProductCardComponent
   ],
   imports: [
     NgbModule.forRoot(),
