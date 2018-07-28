@@ -1,3 +1,7 @@
-<p>
-  product-card works!
-</p>
+<div class="card" style="width: 16rem;">
+  <img [src]="imgSrc" alt="product image" class="card-img-top">
+  <div class="card-body">
+    <h5>{{ title }}</h5>
+    <span>{{ price | currency }}</span>
+  </div>
+</div>
